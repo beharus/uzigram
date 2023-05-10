@@ -1,0 +1,24 @@
+{
+  "categories": [
+    {
+      "name": "All messages",
+      "icon": "fa-sharp fa-solid fa-comments",
+      "url": "/"
+    },
+    {
+      "name": "personals",
+      "icon": "fa-sharp fa-solid fa-comment",
+      "url": "/personals"
+    },
+    {
+      "name": "groups",
+      "icon": "fa-solid fa-folder",
+      "url": "/groups"
+    },
+    {
+      "name": "channels",
+      "icon": "fa-solid fa-folder",
+      "url": "/channels"
+    }
+  ]
+}
