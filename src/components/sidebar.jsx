@@ -3,25 +3,33 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Cat from "./cat";
 import Mode from "./mode";
+import Setsidebar from "./setsidebar";
 
 function Sidebar() {
   const [cat, setCat] = useState([]);
+  const [open, setOpen] = useState(false);
   useEffect(() => {
     fetch(" http://localhost:5000/categories")
       .then((resp) => resp.json())
       .then((data) => setCat(data));
   }, []);
-  console.log(cat);
+  const openFunc = (boolean) => {
+    setOpen(boolean);
+  };
   return (
     <div className="">
       <div className="fixed left-0 top-0 bottom-0 min-h-screen h-full w-20 bg-slate-800 shadow-md shadow-slate-500 flex flex-col gap-14 py-4 items-center">
-        {/* btn */}
         <div className="">
-          <div className=" flex flex-col gap-1 cursor-pointer">
-            <div className="w-8 h-1 rounded-lg bg-slate-200"></div>
-            <div className="w-8 h-1 rounded-lg bg-slate-200"></div>
-            <div className="w-8 h-1 rounded-lg bg-slate-200"></div>
+          {/* btn */}
+          <div onClick={() => openFunc(true)} className="">
+            <div className=" flex flex-col gap-1 cursor-pointer">
+              <div className="w-8 h-1 rounded-lg bg-slate-200"></div>
+              <div className="w-8 h-1 rounded-lg bg-slate-200"></div>
+              <div className="w-8 h-1 rounded-lg bg-slate-200"></div>
+            </div>
           </div>
+          {/* sidebar */}
+          && <Setsidebar open={open} close={() => openFunc(false)} />
         </div>
         {/* categories */}
         <div className="">
@@ -32,7 +40,7 @@ function Sidebar() {
         </div>
         {/* mode */}
         <div className="">
-          <Mode/>
+          <Mode />
         </div>
       </div>
     </div>
