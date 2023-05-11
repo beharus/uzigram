@@ -2,10 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-.active {
+.activeslate {
   color: white !important;
   background-color: rgba(148, 163, 184, 0.746);
 }
-.active i {
+.activeslate i {
+  color: white !important;
+}
+
+.activegreen {
+  color: white !important;
+  background-color: #8dffb750;
+}
+.activegreen i {
   color: white !important;
 }

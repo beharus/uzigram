@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import Cat from "./cat";
 import Mode from "./mode";
 import Setsidebar from "./setsidebar";
+import { useContext } from "react";
+import { Context } from "../context";
 
 function Sidebar() {
   const [cat, setCat] = useState([]);
@@ -16,9 +18,15 @@ function Sidebar() {
   const openFunc = (boolean) => {
     setOpen(boolean);
   };
+  const { state } = useContext(Context);
   return (
     <div className="">
-      <div className="fixed left-0 top-0 bottom-0 min-h-screen h-full w-20 bg-slate-800 shadow-md shadow-slate-500 flex flex-col gap-14 py-4 items-center">
+      <div
+        className={`fixed left-0 top-0 bottom-0 min-h-screen h-full w-20 ${
+          state.setModel ? `bg-slate-800` : `bg-green-900`
+        }  shadow-md ${
+          state.setModel ? `shadow-slate-500` : `shadow-green-500`
+        }   flex flex-col gap-14 py-4 items-center`}>
         <div className="">
           {/* btn */}
           <div onClick={() => openFunc(true)} className="">
@@ -29,7 +37,7 @@ function Sidebar() {
             </div>
           </div>
           {/* sidebar */}
-          && <Setsidebar open={open} close={() => openFunc(false)} />
+          <Setsidebar open={open} close={() => openFunc(false)} />
         </div>
         {/* categories */}
         <div className="">
