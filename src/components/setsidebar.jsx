@@ -14,7 +14,7 @@ function Setsidebar(props) {
       <div
         className={`w-10/12 px-4 py-8 h-full sm:w-3/5 md:w-1/3 ${
           state.setModel ? `bg-slate-800` : `bg-green-800`
-        } bg-slate-800 shadow-md ${
+        } shadow-md ${
           state.setModel ? `shadow-slate-500` : `shadow-green-500`
         }`}>
         <div className="">
