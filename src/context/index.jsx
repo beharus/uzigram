@@ -10,8 +10,10 @@ const reducer = (state = initialVal, action) => {
   const { type, payload } = action;
 
   switch (type) {
+   
     case "SET_TOGGLE":
-      return { ...state, setModel: payload };
+      const hhh = state.setModel
+      return { ...state, setModel: !hhh };
   }
 };
 

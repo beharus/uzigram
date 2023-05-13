@@ -11,7 +11,7 @@ function Sidebar() {
   const [cat, setCat] = useState([]);
   const [open, setOpen] = useState(false);
   useEffect(() => {
-    fetch(" http://localhost:5000/categories")
+    fetch(" http://localhost:3000/categories")
       .then((resp) => resp.json())
       .then((data) => setCat(data));
   }, []);
