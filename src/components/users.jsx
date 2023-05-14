@@ -17,11 +17,11 @@ const Users = () => {
   console.log(state.mode);
   return (
     <>
-      <div className={` z-10 w-80 relative bg-${state.mode ? 'slate-600' : 'slate-200'} h-screen`}>
+      <div className={` z-10 w-80 relative ${state.mode ? 'bg-slate-600' : 'bg-green-300'} h-screen`}>
         {/* input */}
-        <div className="absolute w-full top-0 p-1 bg-slate-600">
+        <div className={`absolute w-full top-0 p-1 ${state.mode ? 'bg-slate-600' : 'bg-green-300'} `}>
           <input
-            className=" border-none h-8 w-full bg-slate-500 p-1 outline-slate-200 rounded"
+            className={` border-none h-8 w-full ${state.mode ? 'bg-slate-500' : 'bg-green-100'}  p-1 outline-slate-200 rounded`}
             type="text"
             placeholder="search"
           />
@@ -34,7 +34,7 @@ const Users = () => {
             return (
               <NavLink to={`${category}/${name}`}
                 key={category}
-                className=" flex items-center gap-4 h-14 w-full text-white p-2"
+                className={` flex items-center font-bold gap-4 h-14 w-full ${state.mode ? 'text-white' : 'text-black'} p-2`}
               >
                 <div className=" w-10 h-10 rounded-full bg-slate-400">
                   <img src={img} />
