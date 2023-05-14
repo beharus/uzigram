@@ -10,13 +10,15 @@ function Setsidebar(props) {
       onClick={(e) => e.target.className.includes("overlay") && close()}
       className={`overlay duration-200 fixed top-0 bottom-0 ${
         !open ? `-left-full` : `left-0`
-      } w-full bg-[#00000050] backdrop-blur-sm`}>
+      } w-full bg-[#00000050] backdrop-blur-sm z-50`}
+    >
       <div
         className={`w-10/12 px-4 py-8 h-full sm:w-3/5 md:w-1/3 ${
-          state.setModel ? `bg-slate-800` : `bg-green-800`
+          state.mode ? `bg-slate-800` : `bg-green-800`
         } shadow-md ${
-          state.setModel ? `shadow-slate-500` : `shadow-green-500`
-        }`}>
+          state.mode ? `shadow-slate-500` : `shadow-green-500`
+        }`}
+      >
         <div className="">
           <img
             className=" w-16 rounded-full shadow-md shadow-slate-500 cursor-cell mb-2"
@@ -30,7 +32,11 @@ function Setsidebar(props) {
         {/* open */}
         <div className=" py-4">
           <Link to={"/setting"}>
-            <div className={` flex gap-1 items-center text-lg ${state.setModel ? `hover:bg-slate-700` : `hover:bg-green-700`} p-2 rounded text-white`}>
+            <div
+              className={` flex gap-1 items-center text-lg ${
+                state.mode ? `hover:bg-slate-700` : `hover:bg-green-700`
+              } p-2 rounded text-white`}
+            >
               <div className="">
                 <i className="fas fa-solid fa-gear p-2 rounded bg-fuchsia-500"></i>
               </div>

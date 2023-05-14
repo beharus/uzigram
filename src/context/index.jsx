@@ -15,10 +15,6 @@ const reducer = (state = initialVal, action) => {
     case 'MODE':
       localStorage.setItem('darkMode', !state.mode);
        return { ...state, mode: !state.mode };
-    case "SET_TOGGLE":
-      const hhh = state.setModel
-      return { ...state, setModel: !hhh };
-
   }
 };
 

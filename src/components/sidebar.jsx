@@ -22,11 +22,8 @@ function Sidebar() {
   return (
     <div className="">
       <div
-        className={`fixed left-0 top-0 bottom-0 min-h-screen h-full w-20 ${
-          state.mode ? `bg-slate-800` : `bg-green-900`
-        }  shadow-md ${
-          state.mode ? `shadow-slate-500` : `shadow-green-500`
-        }   flex flex-col gap-14 py-4 items-center`}>
+        className={`fixed left-0 z-50 top-0 bottom-0 min-h-screen h-full w-20 ${state.mode ? `bg-slate-800 shadow-slate-500` : `bg-green-900 shadow-green-500`
+          }  shadow-md flex flex-col gap-14 py-4 items-center`}>
         <div className="">
           {/* btn */}
           <div onClick={() => openFunc(true)} className="">

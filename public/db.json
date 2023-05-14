@@ -20,5 +20,25 @@
       "icon": "fa-solid fa-folder",
       "url": "/channels"
     }
+  ],
+  "users": [
+    {
+      "name": "behruz",
+      "img": "",
+      "category": "personals",
+      "messages": []
+    },
+    {
+      "name": "behruz",
+      "img": "",
+      "category": "personals",
+      "messages": []
+    },
+    {
+      "name": "behruz",
+      "img": "",
+      "category": "personals",
+      "messages": []
+    }
   ]
 }
