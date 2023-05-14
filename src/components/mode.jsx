@@ -1,35 +1,39 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../context";
 
+
 function Mode() {
   const { state, dispatch } = useContext(Context);
   console.log(state);
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(true);
 
-  const setMode = (boolean) => {
-    setToggle(boolean);
-    dispatch({ type: "SET_TOGGLE", payload: toggle });
+
+  const setMode =  () => {
+
+
+  dispatch({ type: "MODE" })
+
+   
+
   };
   return (
     <div>
       <div
         onClick={() => {
-          setMode(true);
+          setMode();
         }}
-        class={`text-slate-400 text-3xl py-2 px-3 cursor-pointer ${
-          toggle && `hidden`
-        }`}>
-        <i className="fa-solid fa-sun"></i>
+        class={`text-slate-400 text-3xl py-2 px-3 cursor-pointer`}>
+        <i className={`fa-solid fa-${state.mode ? 'moon' : 'sun'}`}></i>
       </div>
-      <div
+      {/* <div
         onClick={() => {
           setMode(false);
         }}
         class={`text-green-400 text-3xl py-2 px-3 cursor-pointer ${
-          !toggle && `hidden`
+          !state.mode && `hidden`
         }`}>
         <i className="fa-solid fa-moon"></i>
-      </div>
+      </div> */}
     </div>
   );
 }

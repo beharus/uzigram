@@ -11,7 +11,7 @@ function Sidebar() {
   const [cat, setCat] = useState([]);
   const [open, setOpen] = useState(false);
   useEffect(() => {
-    fetch(" http://localhost:3000/categories")
+    fetch(" http://localhost:5000/categories")
       .then((resp) => resp.json())
       .then((data) => setCat(data));
   }, []);
@@ -23,9 +23,9 @@ function Sidebar() {
     <div className="">
       <div
         className={`fixed left-0 top-0 bottom-0 min-h-screen h-full w-20 ${
-          state.setModel ? `bg-slate-800` : `bg-green-900`
+          state.mode ? `bg-slate-800` : `bg-green-900`
         }  shadow-md ${
-          state.setModel ? `shadow-slate-500` : `shadow-green-500`
+          state.mode ? `shadow-slate-500` : `shadow-green-500`
         }   flex flex-col gap-14 py-4 items-center`}>
         <div className="">
           {/* btn */}
