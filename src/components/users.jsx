@@ -1,10 +1,10 @@
 import { useContext, useState } from "react";
 import { React, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Context } from "../context";
 
 const Users = () => {
-  const [date, setDate] = useState();
+  const [date, setDate] = useState([]);
   const { state } = useContext(Context)
   useEffect(() => {
     fetch("http://localhost:3000/users")
@@ -32,7 +32,7 @@ const Users = () => {
             console.log(e);
             const { name, img, category } = e;
             return (
-              <NavLink to={`${category}/${name}`}
+              <Link to={`${category}/${name}`}
                 key={category}
                 className={` flex items-center font-bold gap-4 h-14 w-full ${state.mode ? 'text-white' : 'text-black'} p-2`}
               >
@@ -40,7 +40,7 @@ const Users = () => {
                   <img src={img} />
                 </div>
                 <h1>{name}</h1>
-              </NavLink>
+              </Link>
             );
           })}
         </div> 
