@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { Context } from "../context";
 
 const Users = () => {
-  const [date, setDate] = useState();
+  const [date, setDate] = useState([]);
   const { state } = useContext(Context)
   useEffect(() => {
     fetch("http://localhost:3000/users")
@@ -14,7 +14,6 @@ const Users = () => {
         setDate(date)
       });
   }, []);
-  console.log(state.mode);
   return (
     <>
       <div className={` z-10 w-80 relative ${state.mode ? 'bg-slate-600' : 'bg-green-300'} h-screen`}>
@@ -29,21 +28,21 @@ const Users = () => {
         {/* users */}
         <div className=" pt-10">
           {date.map((e) => {
-            console.log(e);
             const { name, img, category } = e;
             return (
               <NavLink to={`${category}/${name}`}
-                key={category}
+                key={category + name}
                 className={` flex items-center font-bold gap-4 h-14 w-full ${state.mode ? 'text-white' : 'text-black'} p-2`}
               >
-                <div className=" w-10 h-10 rounded-full bg-slate-400">
-                  <img src={img} />
+                <div className=" flex justify-center items-center w-10 h-10 rounded-full bg-slate-400">
+                  {img ? <img className=" w-10 h-10 rounded-full object-cover" src={img} />
+                    : <span className=" uppercase text-white">{name.charAt(0)}{e.lastname && e.lastname.charAt(0)}</span>}
                 </div>
-                <h1>{name}</h1>
+                <h1>{name} {category === 'personals' && e.lastname}</h1>
               </NavLink>
             );
           })}
-        </div> 
+        </div>
       </div>
     </>
   );

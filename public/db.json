@@ -24,20 +24,29 @@
   "users": [
     {
       "name": "behruz",
+      "lastname": "as",
       "img": "",
       "category": "personals",
       "messages": []
     },
     {
-      "name": "behruz",
+      "name": "fedya",
+      "lastname": "as",
       "img": "",
       "category": "personals",
       "messages": []
     },
     {
-      "name": "behruz",
+      "name": "aslom",
+      "lastname": "as",
       "img": "",
       "category": "personals",
+      "messages": []
+    },
+    {
+      "name": "group",
+      "img": "https://w0.peakpx.com/wallpaper/368/441/HD-wallpaper-cute-anime-girl-anime-cat-girl-anime-girl-cartoon-cat-girl-cute-anime.jpg",
+      "category": "groups",
       "messages": []
     }
   ]
