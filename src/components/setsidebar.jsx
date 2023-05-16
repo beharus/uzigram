@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../context";
-import Settings from "./settings";
+import Settings from "./settings/settings";
+
 
 
 
@@ -50,12 +51,7 @@ function Setsidebar(props) {
                 } p-2  rounded text-white`}
             >
               <div className="">
-              <img 
-              className="bg-[#eb851f] py-[5px] px-[5px] rounded"
-              width={36}
-            src="https://o.remove.bg/downloads/20dd8741-fe66-4514-80e2-91088439a644/photo_2023-05-15_17-04-12-removebg-preview.png"
-            alt=""
-          />
+            
               </div>
               <span className="pl-[10px]">New Channel</span>
             </div>
