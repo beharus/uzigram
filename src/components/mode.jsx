@@ -13,7 +13,7 @@ function Mode() {
         onClick={() => {
           setMode();
         }}
-        class={`text-${state.mode ? 'slate' : 'green'}-400 text-3xl py-2 px-3 cursor-pointer`}>
+        className={`text-${state.mode ? 'slate' : 'green'}-400 text-3xl py-2 px-3 cursor-pointer`}>
         <i className={`fa-solid fa-${state.mode ? 'moon' : 'sun'}`}></i>
       </div>
     </div>

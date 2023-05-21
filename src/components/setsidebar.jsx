@@ -9,7 +9,7 @@ import Settings from "./settings/settings";
 
 function Setsidebar(props) {
   let { close, open } = props;
-  const { state , dispatch} = useContext(Context);
+  const { state, dispatch } = useContext(Context);
   return (
     <div
       onClick={(e) => e.target.className.includes("overlay") && close()}
@@ -39,7 +39,7 @@ function Setsidebar(props) {
                 } p-2  rounded text-white`}
             >
               <div className="">
-                <i class="fa-solid fa-user-group py-2 px-[6px] rounded bg-blue-500"></i>
+                <i className="fa-solid fa-user-group py-2 px-[6px] rounded bg-blue-500"></i>
               </div>
               <span className="pl-[10px]">New group</span>
             </div>
@@ -51,7 +51,7 @@ function Setsidebar(props) {
                 } p-2  rounded text-white`}
             >
               <div className="">
-            
+
               </div>
               <span className="pl-[10px]">New Channel</span>
             </div>
@@ -87,7 +87,7 @@ function Setsidebar(props) {
                 } p-2 rounded text-white`}
             >
               <div className="">
-                <i class="fa-sharp fa-solid fa-bookmark py-2 px-[10px] rounded bg-blue-400"></i>
+                <i className="fa-sharp fa-solid fa-bookmark py-2 px-[10px] rounded bg-blue-400"></i>
               </div>
               <span className="pl-[10px]">Saved Messages</span>
             </div>
@@ -95,9 +95,9 @@ function Setsidebar(props) {
 
           <Link to={"/setting"}>
             <div
-            onClick={()=>{
-              dispatch({type:'SETTINGS'})
-            }}
+              onClick={() => {
+                dispatch({ type: 'SETTINGS' })
+              }}
               className={` flex gap-1 items-center text-lg ${state.mode ? `hover:bg-slate-700` : `hover:bg-green-700`
                 } p-2 rounded text-white`}
             >
@@ -119,11 +119,11 @@ function Setsidebar(props) {
 
             </div>
             <span className="pl-[10px]">Night Mode</span>
-            </div>
-        
+          </div>
+
         </div>
 
-       {state.settings && <Settings />}
+        {state.settings && <Settings />}
       </div>
     </div>
   );

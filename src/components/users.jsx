@@ -2,18 +2,15 @@ import { useContext, useState } from "react";
 import { React, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../context";
+import { useFetch } from "../hooks/useFetch";
 
 const Users = () => {
-  const [date, setDate] = useState([]);
   const { state } = useContext(Context)
+  const [api, setApi] = useState(state.getUsers)
   useEffect(() => {
-    fetch("http://localhost:3000/users")
-      .then((res) => res.json())
-      .then((date) => {
-        console.log(date);
-        setDate(date)
-      });
-  }, []);
+    setApi(state.getUsers)
+  }, [state])
+  const { data } = useFetch(api)
   return (
     <>
       <div className={` z-10 w-80 relative ${state.mode ? 'bg-slate-600' : 'bg-green-300'} h-screen`}>
@@ -27,11 +24,11 @@ const Users = () => {
         </div>
         {/* users */}
         <div className=" pt-10">
-          {date.map((e) => {
+          {data && data.map((e) => {
             const { name, img, category } = e;
             return (
               <Link to={`${category}/${name}`}
-                key={category}
+                key={category + name}
                 className={` flex items-center font-bold gap-4 h-14 w-full ${state.mode ? 'text-white' : 'text-black'} p-2`}
               >
                 <div className=" flex justify-center items-center w-10 h-10 rounded-full bg-slate-400">
