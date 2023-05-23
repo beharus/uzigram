@@ -10,6 +10,9 @@ import Settings from "./settings/settings";
 function Setsidebar(props) {
   let { close, open } = props;
   const { state, dispatch } = useContext(Context);
+  const setMode = () => {
+    dispatch({ type: "MODE" })
+  };
   return (
     <div
       onClick={(e) => e.target.className.includes("overlay") && close()}
@@ -51,7 +54,7 @@ function Setsidebar(props) {
                 } p-2  rounded text-white`}
             >
               <div className="">
-
+                <i class="fa-brands fa-github py-2 px-[9px] rounded bg-amber-400"></i>
               </div>
               <span className="pl-[10px]">New Channel</span>
             </div>
@@ -109,16 +112,18 @@ function Setsidebar(props) {
           </Link>
 
 
-          <div className={` flex gap-1 items-center text-lg ${state.mode ? `hover:bg-slate-700` : `hover:bg-green-700`
+          <div className={`flex justify-between items-center text-lg ${state.mode ? `hover:bg-slate-700` : `hover:bg-green-700`
             } p-2 rounded text-white`}
           >
-            <div className="flex gap-1">
-              <i className="fas fa-moon fa-gear py-2 px-[10px] rounded bg-blue-900"></i>
-
-
-
+            <div className="flex gap-1 items-center">
+              <div className="flex gap-1">
+                <i className="fas fa-moon fa-gear py-2 px-[10px] rounded bg-blue-900"></i>
+              </div>
+              <span className="pl-[10px]">Night Mode</span>
             </div>
-            <span className="pl-[10px]">Night Mode</span>
+            <div  onClick={setMode} className={` duration-500 w-16 h-6 ${state.mode ? "bg-slate-500" : "bg-green-500"} relative rounded-3xl`}>
+              <div className={` w-8 h-8 border-2 absolute transition-all duration-500 -top-1 ${state.mode ? "bg-slate-700 right-0" : "bg-green-700 left-0"} rounded-full `}></div>
+            </div>
           </div>
 
         </div>

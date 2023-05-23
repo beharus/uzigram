@@ -1,16 +1,19 @@
 import React, { useContext, useState } from 'react'
 import { Context } from '../../context'
-import Language from './language'
+import SetColor from './setColor'
 
 const Settings = () => {
-  const [opt , setOpt] = useState(false)
+  const [opt, setOpt] = useState(false)
   const { state, dispatch } = useContext(Context)
-
+  const [coldiv , setColdiv] = useState(false)
   const setSet = (e) => {
     if (e.target.className.includes('setset')) {
       dispatch({ type: 'SETTINGS' })
     }
+
   }
+
+
   return (
     <div onClick={setSet} className='setset fixed bg-[#0303038c] flex justify-center justify-items-center  top-0 left-0 right-0 bottom-0'>
       <div className='w-[375px] rounded my-[60px] bg-slate-900 backdrop-blur-sm z-50'>
@@ -18,19 +21,19 @@ const Settings = () => {
           <h1 className='text-white text-[18px]'>Settings</h1>
 
           <div className='flex '>
-            <div onClick={()=>{
+            <div onClick={() => {
               setOpt(prev => !prev)
             }} className='px-4 h-1'>
               <p className='w-[5px] h-[5px] rounded-full mb-[1.9px] bg-slate-600'></p>
               <p className='w-[5px] h-[5px] rounded-full mb-[1.9px] bg-slate-600'></p>
               <p className='w-[5px] h-[5px] rounded-full bg-slate-600'></p>
-           </div>
-           {opt && <div className='fixed w-[150px] top-9 bg-slate-800 rounded py-1 px-2 right-[50px]'>
-            <p className='text-white hover:bg-slate-500 rounded px-2 font-[400]'><i class="fa-solid fa-user-plus"></i> Add Account</p>
-            <p className='text-white  hover:bg-slate-500 rounded px-2 font-[400]'><i class="fa-solid fa-exclamation boreder-w-1"></i> Edit Profile</p>
-            <p className='text-red-600  hover:bg-slate-500 rounded px-2 font-[400]'>Log out</p>
+            </div>
+            {opt && <div className='fixed w-[150px] top-9 bg-slate-800 rounded py-1 px-2 right-[50px]'>
+              <p className='text-white hover:bg-slate-500 rounded px-2 font-[400]'><i class="fa-solid fa-user-plus"></i> Add Account</p>
+              <p className='text-white  hover:bg-slate-500 rounded px-2 font-[400]'><i class="fa-solid fa-exclamation boreder-w-1"></i> Edit Profile</p>
+              <p className='text-red-600  hover:bg-slate-500 rounded px-2 font-[400]'>Log out</p>
             </div>}
-            
+
             <div>
               <i onClick={() => {
                 dispatch({ type: 'SETTINGS' })
@@ -124,25 +127,26 @@ const Settings = () => {
           </div>
         </div>
 
-
+        {/* colors */}
         <div>
           <div
+            onClick={()=>dispatch({type:'COLOR'})}
             className={` flex gap-1 items-center text-lg ${state.mode ? `hover:bg-slate-700` : `hover:bg-green-700`
               } py-2  px-5 rounded text-white`}
           >
             <div className="">
-              <i class="fa-sharp fa-regular fa-earth-americas"></i>
+              <i class="fa-solid fa-palette p-2 rounded bg-orange-400"></i>
             </div>
-          <div className='flex w-full justify-between'> 
-          <span className="pl-[10px]">Language</span>
-             <Language />
+            <div className='flex w-full justify-between'>
+              <span className="pl-[10px]">Set Colors</span>
+            </div>
           </div>
+          
+          <div className={`${state.color ?'block':"hidden"}`}>
+            <SetColor />
           </div>
+  
         </div>
-
-        {/* language */}
-    
-
       </div>
     </div>
   )

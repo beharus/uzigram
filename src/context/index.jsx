@@ -4,7 +4,9 @@ import { createContext } from "react";
 const initialVal = {
   mode: localStorage.getItem('darkMode') === 'true',
   settings: false,
-  getUsers: "http://localhost:3000/users"
+  getUsers: "http://localhost:3000/users",
+  color:false
+
 };
 export const Context = createContext();
 
@@ -12,9 +14,18 @@ const reducer = (state = initialVal, action) => {
   const { type, payload } = action;
 
   switch (type) {
+    case 'COLOR' :
+      const col = state.color
+      return {...state , color:!col}
     case 'SETTINGS':
-      const sss = state.settings
+      if(state.color){
+        const sss = state.settings
+        return { ...state, settings: true , color:false}
+      }else{
+        const sss = state.settings
       return { ...state, settings: !sss }
+      }
+      
     case 'MODE':
       localStorage.setItem('darkMode', !state.mode);
       return { ...state, mode: !state.mode };
