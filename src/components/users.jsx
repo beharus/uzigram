@@ -21,7 +21,7 @@ const Users = () => {
   }
   return (
     <>
-      <div className={` z-10 w-80 relative ${state.mode ? 'bg-slate-600' : 'bg-green-300'} h-screen`}>
+      <div className={` z-10 w-full relative ${state.mode ? 'bg-slate-600' : 'bg-green-300'} h-screen`}>
         {/* input */}
         <div className={`absolute w-full top-0 p-1 ${state.mode ? 'bg-slate-600' : 'bg-green-300'} `}>
           <input

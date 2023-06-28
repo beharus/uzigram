@@ -5,7 +5,8 @@ const initialVal = {
   mode: localStorage.getItem('darkMode') === 'true',
   settings: false,
   getUsers: "http://localhost:3000/users",
-  color:false
+  color: false,
+  contact: false
 
 };
 export const Context = createContext();
@@ -14,23 +15,25 @@ const reducer = (state = initialVal, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case 'COLOR' :
+    case 'COLOR':
       const col = state.color
-      return {...state , color:!col}
+      return { ...state, color: !col }
     case 'SETTINGS':
-      if(state.color){
+      if (state.color) {
         const sss = state.settings
-        return { ...state, settings: true , color:false}
-      }else{
+        return { ...state, settings: true, color: false }
+      } else {
         const sss = state.settings
-      return { ...state, settings: !sss }
+        return { ...state, settings: !sss }
       }
-      
     case 'MODE':
       localStorage.setItem('darkMode', !state.mode);
       return { ...state, mode: !state.mode };
     case "SET_API":
       return { ...state, getUsers: payload }
+    case "CONTACTS":
+      const cont = state.contact
+      return { ...state, contact: !cont }
   }
 };
 

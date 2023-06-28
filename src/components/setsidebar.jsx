@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../context";
 import Settings from "./settings/settings";
+import Contact from "./contacts/Contact";
 
 
 
@@ -13,6 +14,10 @@ function Setsidebar(props) {
   const setMode = () => {
     dispatch({ type: "MODE" })
   };
+  const setContacts = () => {
+    dispatch({ type: "CONTACTS" })
+    console.log(state.contact);
+  }
   return (
     <div
       onClick={(e) => e.target.className.includes("overlay") && close()}
@@ -60,7 +65,7 @@ function Setsidebar(props) {
             </div>
           </Link>
 
-          <Link to={"/contacts"}>
+          <Link onClick={setContacts} to={"/contacts"}>
             <div
               className={` flex gap-1 items-center text-lg ${state.mode ? `hover:bg-slate-700` : `hover:bg-green-700`
                 } p-2 rounded text-white`}
@@ -71,6 +76,9 @@ function Setsidebar(props) {
               <span className="pl-[10px]">Contacts</span>
             </div>
           </Link>
+          <div className={`${state.contact?"block":"hidden"}`}>
+                <Contact/>
+          </div>
 
           <Link to={"/calls"}>
             <div
@@ -121,7 +129,7 @@ function Setsidebar(props) {
               </div>
               <span className="pl-[10px]">Night Mode</span>
             </div>
-            <div  onClick={setMode} className={` duration-500 w-16 h-6 ${state.mode ? "bg-slate-500" : "bg-green-500"} relative rounded-3xl`}>
+            <div onClick={setMode} className={` duration-500 w-16 h-6 ${state.mode ? "bg-slate-500" : "bg-green-500"} relative rounded-3xl`}>
               <div className={` w-8 h-8 border-2 absolute transition-all duration-500 -top-1 ${state.mode ? "bg-slate-700 right-0" : "bg-green-700 left-0"} rounded-full `}></div>
             </div>
           </div>

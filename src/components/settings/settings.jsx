@@ -5,7 +5,6 @@ import SetColor from './setColor'
 const Settings = () => {
   const [opt, setOpt] = useState(false)
   const { state, dispatch } = useContext(Context)
-  const [coldiv , setColdiv] = useState(false)
   const setSet = (e) => {
     if (e.target.className.includes('setset')) {
       dispatch({ type: 'SETTINGS' })

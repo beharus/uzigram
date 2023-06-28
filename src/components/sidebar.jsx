@@ -20,7 +20,7 @@ function Sidebar() {
     <div className="">
       <div
         className={`fixed left-0 z-50 top-0 bottom-0 min-h-screen h-full w-20 ${state.mode ? `bg-slate-800 shadow-slate-500` : `bg-green-900 shadow-green-500`
-          }  shadow-md flex flex-col gap-14 py-4 items-center overflow-auto`}>
+          }  shadow-md flex flex-col gap-14 py-4 items-center`}>
         <div className="">
           {/* btn */}
           <div onClick={() => openFunc(true)} className="">
@@ -34,10 +34,10 @@ function Sidebar() {
           <Setsidebar open={open} close={() => openFunc(false)} />
         </div>
         {/* categories */}
-        <div className="">
-          {data && data.map((el) => {
+        <div className="overflow-hidden hover:overflow-auto">
+          {data && data.map((el, index) => {
             const { name, icon, url } = el;
-            return <Cat key={name} name={name} icon={icon} url={url} />;
+            return <Cat key={index} name={name} icon={icon} url={url} />;
           })}
         </div>
         {/* mode */}
